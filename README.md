@@ -97,6 +97,32 @@
 
 ---
 
+#### Решение 1.3
+
+Для изменения приветствия системы создан плейбук `change_motd.yml`.
+
+Приветствие задаётся с помощью переменной `motd_message`.
+
+```yaml
+---
+- name: Изменение MOTD
+  hosts: all
+  become: true
+
+  vars:
+    motd_message: "Добро пожаловать! Хорошего дня!"
+
+  tasks:
+    - name: Изменить приветствие
+      ansible.builtin.copy:
+        content: "{{ motd_message }}\n"
+        dest: /etc/motd
+        mode: '0644'
+```
+![Результат выполнения 1.3](https://github.com/evgeniy-salmin/practise-ancible-part2/blob/main/scr1.3.png)
+
+---
+
 ### Задание 2
 
 `Приведите ответ в свободной форме........`
