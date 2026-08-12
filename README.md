@@ -61,11 +61,36 @@
         dest: "/opt/kafka"
         remote_src: true
         creates: "/opt/kafka/kafka_2.13-4.3.1"
-```
 		
 ![Результат выполнения 1.1](https://github.com/evgeniy-salmin/practise-ancible-part2/blob/main/scr1.1.png)
 
+#### Решение 1.2
 
+Для установки и настройки `tuned` создан плейбук `install_tuned.yml`.
+
+Плейбук устанавливает `tuned`, запускает службу и добавляет её в автозагрузку.
+
+```yaml
+---
+- name: Установка и настройка tuned
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Установка tuned
+      ansible.builtin.apt:
+        name: tuned
+        state: present
+        update_cache: true
+
+    - name: Запуск tuned и добавление в автозагрузку
+      ansible.builtin.systemd:
+        name: tuned
+        state: started
+        enabled: true
+```
+
+![Результат выполнения 1.2](https://github.com/evgeniy-salmin/practise-ancible-part2/blob/main/scr1.2.png)
 ---
 
 ### Задание 2

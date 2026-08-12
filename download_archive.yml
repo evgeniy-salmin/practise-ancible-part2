@@ -1,0 +1,23 @@
+---
+- name: Скачивание и распаковка Apache Kafka
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Создание базовой папки для установки
+      ansible.builtin.file:
+        path: /opt/kafka
+        state: directory
+        mode: '0755'
+
+    - name: Скачивание архива Kafka
+      ansible.builtin.get_url:
+        url: "https://archive.apache.org/dist/kafka/4.3.1/kafka_2.13-4.3.1.tgz"
+        dest: "/tmp/kafka_2.13-4.3.1.tgz"
+        mode: '0644'
+
+    - name: Распаковка архива Kafka
+      ansible.builtin.unarchive:
+        src: "/tmp/kafka_2.13-4.3.1.tgz"
+        dest: "/opt/kafka"
+        remote_src: true

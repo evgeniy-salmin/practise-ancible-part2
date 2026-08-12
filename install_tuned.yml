@@ -1,0 +1,17 @@
+---
+- name: Установка и настройка tuned
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Установка tuned
+      ansible.builtin.apt:
+        name: tuned
+        state: present
+        update_cache: true
+
+    - name: Запуск tuned и добавление в автозагрузку
+      ansible.builtin.systemd:
+        name: tuned
+        state: started
+        enabled: true
