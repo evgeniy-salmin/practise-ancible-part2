@@ -61,6 +61,7 @@
         dest: "/opt/kafka"
         remote_src: true
         creates: "/opt/kafka/kafka_2.13-4.3.1"
+```
 		
 ![Результат выполнения 1.1](https://github.com/evgeniy-salmin/practise-ancible-part2/blob/main/scr1.1.png)
 
