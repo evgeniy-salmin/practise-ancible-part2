@@ -146,6 +146,33 @@
 ![Название скриншота 2](ссылка на скриншот 2)`
 
 
+#### Решение 2
+
+Модифицирован плейбук из задания 1.3.
+
+Приветствие содержит IP-адрес и hostname управляемого хоста, а также пожелание хорошего дня системному администратору.
+
+```yaml
+---
+- name: Изменение MOTD
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Изменить приветствие
+      ansible.builtin.copy:
+        dest: /etc/motd
+        mode: '0644'
+        content: |
+          IP-адрес: {{ ansible_default_ipv4.address }}
+          Hostname: {{ ansible_hostname }}
+          Хорошего дня, системный администратор!
+```
+
+Результат выполнения:
+
+![Результат выполнения 2](https://github.com/evgeniy-salmin/practise-ancible-part2/blob/main/scr2.png)
+
 ---
 
 ### Задание 3
