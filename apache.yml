@@ -1,0 +1,13 @@
+---
+- name: Настройка Apache
+  hosts: all
+  become: true
+
+  roles:
+    - apache
+
+  tasks:
+    - name: Проверка доступности сайта
+      ansible.builtin.uri:
+        url: http://localhost
+        status_code: 200
