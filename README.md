@@ -211,11 +211,11 @@
 
 Результат выполнения плейбука:
 
-![Результат выполнения 3.1](https://github.com/evgeniy-salmin/practise-ancible-part2/blob/main/src3.1.png)
+![Результат выполнения 3.1](https://github.com/evgeniy-salmin/practise-ancible-part2/blob/main/scr3.1.png)
 
 Результат проверки веб-страницы:
 
-![Результат проверки 3.2](https://github.com/evgeniy-salmin/practise-ancible-part2/blob/main/src3.2.png)
+![Результат проверки 3.2](https://github.com/evgeniy-salmin/practise-ancible-part2/blob/main/scr3.2.png)
 
 ---
 
